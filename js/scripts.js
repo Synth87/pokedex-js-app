@@ -1,6 +1,7 @@
+// Initializing an empty array
 let pokemonList = [];
 
-/* Array with all pokemon-objects */
+/* Array with all pokemon objects */
 pokemonList = [
     {
         name: 'Bulbasaur',
@@ -54,5 +55,28 @@ pokemonList = [
     },
 ];
 
-console.log(pokemonList);
-console.log(`${pokemonList[0].name} ${pokemonList[0].height} ${pokemonList[0].types}`);
+
+
+
+// declaring variables for the name, height and types of the pokemons
+let pokemonName = '';
+let pokemonHeight = null;
+let pokemonTypes = '';
+
+//for loop to iterate over every object in the pokemonList array starting at index 0
+for (i = 0; i < pokemonList.length; i++) {
+
+    // initializing the variables for the name, height and types of the pokemons to make the code more readable
+    pokemonName = pokemonList[i].name;
+    pokemonHeight = pokemonList[i].height;
+    pokemonTypes = pokemonList[i].types;
+
+    // condition to check if the height of the pokemon is greater than 1.4 m
+    if (pokemonList[i].height > 1.4) {
+        // output on the website's DOM if the pokemon is greater than 1.4 m
+        document.write(`<pre>Pokemon: ${pokemonName}    height: (${pokemonHeight})    types:(${pokemonTypes}) - Wow, that's big!</pre>`);
+    } else {
+        // output on the website's DOM if the pokemon is smaller or equal to 1.4 m
+        document.write(`<pre>Pokemon: ${pokemonName}    height: (${pokemonHeight})    types:(${pokemonTypes})</pre>`);
+    }
+}
