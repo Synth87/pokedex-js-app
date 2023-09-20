@@ -1,14 +1,224 @@
+/* CSS styling for the pokedex-app */
+
+:root {
+
+    /* Colors */
+    /* Main colors used */
+    --text-color: #2b2b2b;
+
+    /* --primary-color: #8cabbf; */
+    /* --secondary-color: #DF6615; */
+    /* --background-color: #CDDDDD; */
+
+    /* colors container divs */
+    --background-color-containers: #A81F2A;
+    --background-color-main-heading: #A81F2A;
+
+
+    /* buttons - styling */
+    --btn-text-color: #181818;
+    --btn-background-color: #F0F000;
+    --btn-border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    --btn-font-weight: 700;
+    --btn-font-size: 18px;
+
+    /* buttons :hover */
+    --btn-background-color-hover: #dac909;
+
+    /* buttons :active */
+    --btn-background-color-active: #56da09;
+
+    /* Text */
+    /* main font used */
+    --main-font-family: 'Roboto', Arial;
+    --main-font-size: 16px;
+    --main-line-height: 1.2;
+
+    /* h1 */
+    --h1-font-family: 'Luckiest Guy', cursive, Arial;
+    --h1-font-color: #FFF;
+    --h1-font-size: 35px;
+    --h1-line-height: 1.5;
+    --h1-font-weight: 900;
+    --h1-margin-bottom: 12px;
+
+}
+
+
 body {
-    font-family: 'Roboto', Arial;
-    font-size: 20px;
-    text-align: left;
-    margin: 0 100px;
+    font-family: var(--main-font-family);
+    background-color: var(--background-color);
 }
 
 
 h1 {
-    font-size: 60px;
+    font-family: var(--h1-font-family);
+    font-size: var(--h1-font-size);
+    color: var(--h1-font-color);
+}
+
+
+/* flex-container for the buttons */
+.button-box {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px 15px;
+    padding: 0 20px;
+
+    background-color: var(--background-color-containers);
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ul for the list-elements containing the buttons */
+ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    /* Padding 0 to reset the standard padding. Without it, the centering of the buttons in the list would not be correct */
+    padding-left: 0;
+    list-style-type: none;
+}
+
+
+/* list-elements containing the buttons */
+li {
+    flex: 1;
+
+    min-width: 150px;
+    max-width: 250px;
+    /* setting the margin here and not in the buttons. Better here than in the actual content. */
+    margin: 10px;
+}
+
+
+/* styling the buttons */
+button {
     text-align: center;
-    background-color: rgb(242, 242, 0);
-    color: #444;
+    width: 100%;
+
+    height: 50px;
+    /* overwrites browser defaults and resets the border */
+    border: none;
+
+    font-family: inherit;
+    font-size: var(--btn-font-size);
+
+    font-weight: var(--btn-font-weight);
+    /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+    background-color: var(--btn-background-color);
+    color: var(--btn-text-color);
+    text-decoration: none;
+    /*adds spacing to the button (this will be discussed more in-depth later) */
+    padding: 10px;
+    border-radius: 3px;
+    /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
+    border-bottom: var(--btn-border-bottom);
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+
+button:hover {
+    transition: 0.3s;
+    background-color: var(--btn-background-color-hover);
+}
+
+button:active {
+    background-color: var(--btn-background-color-active);
+}
+
+
+
+/* container on top of the page for the blue light and the heading */
+.main-container {
+    display: flex;
+    align-items: center;
+
+    margin: 20px 15px;
+
+    min-height: 100px;
+
+    background-color: var(--background-color-main-heading);
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+/* container for the circles that form the blue light */
+.circle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+
+    width: 60px;
+    height: 60px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    left: 100%;
+    transform: translateX(-50%);
+}
+
+
+.circle-large {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+.circle-medium {
+    width: 50px;
+    height: 50px;
+    background-color: #5EA6DC;
+    bottom: 5px;
+}
+
+/* oval circle */
+.circle-small.oval {
+    width: 10px;
+    height: 21px;
+    background-color: white;
+    bottom: 28px;
+    /* to move it to the side */
+    left: 80%;
+    transform: rotate(42deg);
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* main heading */
+.heading {
+    flex: 1;
+    padding-left: 55px;
+    padding-right: 15px;
+
+    letter-spacing: 2px;
+
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+}
+
+
+/* media query to make the blue light on the top left disappear */
+@media all and (max-width: 370px) {
+    .circle-container {
+        display: none;
+    }
 }
