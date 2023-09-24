@@ -36,6 +36,13 @@
         <ul class="pokemon-list"></ul>
     </div>
 
+    <!-- Link to polyfill for promises -->
+    <!-- This script musst be loaded bevor scripts.js to use the functionality for executing the promises in the scripts.js file. new Promise(...) will now work with older browsers as well -->
+    <script src="js/promise-polyfill.js"></script>
+
+    <!-- Link to polyfill for fetch() -->
+    <script src="js/fetch.umd.js"></script>
+
     <!-- Link to the JS file -->
     <script src="js/scripts.js"></script>
 
