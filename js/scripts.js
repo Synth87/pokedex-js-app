@@ -151,7 +151,7 @@ let pokemonRepository = (function () {
         let titleElement = document.createElement('h1');
         titleElement.innerText = pokemon.name;
 
-        
+
         // creating a p element to display the height of the pokemon
         let heightElement = document.createElement('p');
         // converting the number to meters
@@ -224,6 +224,52 @@ let pokemonRepository = (function () {
     }
 
 
+    // Search function for pokemons
+    // Attach an event listener to the search input field. Event type = 'input'
+    // info: the whole code is activated every time the user enters a character.
+    document.querySelector('#pokemon-search').addEventListener('input', function () {
+
+        // Get the current value of the search input
+        // Convert it to lowercase to ensure case-insensitive filtering
+        let searchInput = document.querySelector('#pokemon-search');
+        let value = searchInput.value.toLowerCase();
+
+        // Get all pokemons from the repository
+        let allPokemons = pokemonRepository.getAll();
+
+
+
+        // Filter the pokemons based on the provided input value. filteredPokemons ist an array.
+        // each function has its own scope: the parameter "pokemon" within the event listener function is scoped to that specific function and does not relate to "pokemon" parameters or variables outside of it (like e.g. function showModal(pokemon) {}).
+        let filteredPokemons = allPokemons.filter(function (pokemon) {
+
+            // Convert the pokemon's name to lowercase. This ensures that the filtering is case-insensitive
+            let pokemonNameLowercase = pokemon.name.toLowerCase();
+
+            // Check if the pokemon's name contains the provided value. If it does, the current pokemon passes the filter
+            return pokemonNameLowercase.includes(value);
+        });
+
+
+        // Clear the currently displayed Pokemon list
+        // This prepares for displaying the new filtered list
+        let pokemonList = document.querySelector('.pokemon-list');
+        pokemonList.innerHTML = '';
+
+
+        // checking if the search was successful
+        if (filteredPokemons.length > 0) {
+            // if true, iterate over the filtered pokemon list
+            filteredPokemons.forEach(function (pokemon) {
+                // add each filtered pokemon to the display list
+                pokemonRepository.addListItem(pokemon);
+            });
+        } else {
+            // if false, show a message instead
+            pokemonList.innerHTML = '<h3>Sorry, your search has returned no results.</h3>';
+        }
+
+    });
 
 
 
