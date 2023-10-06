@@ -38,8 +38,8 @@
 
     <!-- container for the search box -->
     <div class="input-container">
-        <label class="input-label" for="pokemon-search">Search for a Pokémon:</label>
-        <input class="input-item" type="text" id="pokemon-search" placeholder="Enter the name of the Pokémon...">
+        <label id="input-label" for="pokemon-search">Search for a Pokémon:</label>
+        <input class="input-item" type="text" id="pokemon-search" placeholder="Enter the name of the Pokémon..." aria-labelledby="input-label">
     </div>
 
     <!-- Container for all the buttons -->
@@ -49,7 +49,7 @@
 
 
     <!-- Bootstrap Modal to show the individual pokemons -->
-    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="pokemonModalLabel"
+    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
