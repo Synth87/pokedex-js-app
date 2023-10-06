@@ -11,7 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
+    <!-- Apply bootstrap CSS here. The browser will always read the code from top to bottom. To change and overwrite the Bootstrap default styles, my own styles.css has to come after the bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- my CSS stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -34,19 +38,36 @@
 
     <!-- container for the search box -->
     <div class="input-container">
-        <input class="input-item" type="text" id="pokemon-search" placeholder="Search for a Pokémon...">
+        <label class="input-label" for="pokemon-search">Search for a Pokémon:</label>
+        <input class="input-item" type="text" id="pokemon-search" placeholder="Enter the name of the Pokémon...">
     </div>
 
     <!-- Container for all the buttons -->
     <div class="button-box">
-        <ul class="pokemon-list"></ul>
+        <ul class="pokemon-list list-group-horizontal d-flex justify-content-around align-items-center flex-wrap"></ul>
     </div>
 
 
-    <!-- modal container to show the individual pokemons -->
-    <div id="modal-container">
-        <div id="image-container"></div>
+    <!-- Bootstrap Modal to show the individual pokemons -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-labelledby="pokemonModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Here the pokemon data gets added -->
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 
 
 
@@ -57,8 +78,27 @@
     <!-- Link to polyfill for fetch() -->
     <script src="js/fetch.umd.js"></script>
 
+
+
+    <!-- Bootstrap JS links -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+
     <!-- Link to the JS file -->
     <script src="js/scripts.js"></script>
+
+
 
 </body>
 

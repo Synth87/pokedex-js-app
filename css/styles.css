@@ -42,8 +42,8 @@
     --h1-font-weight: 900;
     --h1-margin-bottom: 12px;
 
-    /* h3 */
-    --h3-font-color: #FFF;
+    /* h4 */
+    --h4-font-color: #FFF;
 
     /* input */
     --input-font-family: 'Roboto', Arial;
@@ -57,14 +57,14 @@
     /* p modal */
     --main-font-size-modal: 16px;
 
-    /* buttons :hover modal */
+    /* buttons:hover modal */
     --btn-background-color-hover-modal: #931B25;
 
-    /* buttons :active modal */
+    /* buttons:active modal */
     --btn-background-color-active-modal: #255B06;
 
-
 }
+
 
 
 body {
@@ -80,22 +80,17 @@ h1 {
 }
 
 /* used to display the unsuccessful search result */
-h3 {
+h4 {
     font-family: var(--main-font-family);
-    color: var(--h3-font-color);
+    color: var(--h4-font-color);
     text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
 }
 
 
 /* flex-container for the buttons */
 .button-box {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
     margin: 20px 15px;
-    padding: 0 20px;
+    padding: 10px 0px;
 
     background-color: var(--background-color-containers);
     border-radius: 10px;
@@ -106,50 +101,48 @@ h3 {
 
 /* ul for the list-elements containing the buttons */
 ul {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    align-items: center;
-
     /* Padding 0 to reset the standard padding. Without it, the centering of the buttons in the list would not be correct */
     padding-left: 0;
     list-style-type: none;
 }
 
 
-/* list-elements containing the buttons */
-li {
+.list-group-horizontal {
+    margin: 10px;
+    padding: 0;
+}
+
+.list-group-item {
     flex: 1;
 
-    min-width: 150px;
-    max-width: 250px;
-    /* setting the margin here and not in the buttons. Better here than in the actual content. */
-    margin: 10px;
+    min-width: 190px;
+    max-width: 290px;
+
+    margin: 0px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
 }
 
 
-/* styling the buttons */
-button {
+/* styling the buttons - modified bootstrap class */
+.btn-primary {
     text-align: center;
     width: 100%;
 
     height: 50px;
-    /* overwrites browser defaults and resets the border */
+    
     border: none;
 
     font-family: inherit;
     font-size: var(--btn-font-size);
 
     font-weight: var(--btn-font-weight);
-    /* styles the background color, font color, and text decoration (underline, etc.) of the button */
     background-color: var(--btn-background-color);
     color: var(--btn-text-color);
     text-decoration: none;
-    /*adds spacing to the button (this will be discussed more in-depth later) */
     padding: 10px;
     border-radius: 3px;
-    /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
     border-bottom: var(--btn-border-bottom);
 
     cursor: pointer;
@@ -157,15 +150,6 @@ button {
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
 }
 
-
-button:hover {
-    transition: 0.3s;
-    background-color: var(--btn-background-color-hover);
-}
-
-button:active {
-    background-color: var(--btn-background-color-active);
-}
 
 
 
@@ -175,8 +159,9 @@ button:active {
     align-items: center;
 
     margin: 20px 15px;
+    padding: 10px;
 
-    min-height: 100px;
+    min-height: 120px;
 
     background-color: var(--background-color-main-heading);
     border-radius: 10px;
@@ -184,6 +169,17 @@ button:active {
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
 }
 
+
+/* label for the search box */
+.input-label {
+    padding: 8px;
+    text-align: center;
+    font-family: var(--main-font-family);
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+}
 
 /* container for the search box */
 .input-container {
@@ -294,61 +290,6 @@ input:focus {
 
 
 
-
-
-
-/* Everything to style the modal and its container*/
-/* modal container */
-#modal-container {
-    position: fixed;
-    padding: 20px;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-
-    /* to show it above other content */
-    z-index: 999;
-
-    /* to allow scrolling if the screen is not high enough*/
-    overflow: auto;
-
-    /* this is used to center the modal */
-    display: grid;
-    text-align: center;
-}
-
-/* the modal that shows the pokemon and its characteristics */
-.modal {
-    /* centering the modal on the page */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #eeeeee;
-    padding: 15px;
-    width: 80%;
-    max-width: 500px;
-
-    border-radius: 10px;
-}
-
-
-/* .modal-close {
-    float: right;
-    border: 0;
-    background: none;
-    color: #777;
-    text-decoration: underline;
-} */
-
-
 /* the title of the modal displaying the name */
 .modal h1 {
     text-align: center;
@@ -380,28 +321,24 @@ input:focus {
 }
 
 /* button to close the modal */
-.modal-close-btn {
+.btn-secondary {
     margin-top: 20px;
 
     text-align: center;
     width: 100%;
 
     height: 50px;
-    /* overwrites browser defaults and resets the border */
     border: none;
 
     font-family: inherit;
     font-size: var(--btn-font-size);
 
     font-weight: var(--btn-font-weight);
-    /* styles the background color, font color, and text decoration (underline, etc.) of the button */
     background-color: var(--background-color-main-heading);
     color: #FFF;
     text-decoration: none;
-    /*adds spacing to the button (this will be discussed more in-depth later) */
     padding: 10px;
     border-radius: 3px;
-    /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
     border-bottom: var(--btn-border-bottom);
 
     cursor: pointer;
@@ -410,28 +347,14 @@ input:focus {
 }
 
 
-.modal-close-btn:hover {
+.btn-secondary:hover {
     transition: 0.3s;
     background-color: var(--btn-background-color-hover-modal);
 }
 
-.modal-close-btn:active {
+.btn-secondary:active {
     background-color: var(--btn-background-color-active-modal);
 }
-
-
-
-/* at first the modal container is not visible */
-#modal-container {
-    display: none;
-}
-
-#modal-container.is-visible {
-    /* CSS for modal container - add your own desired CSS styles here */
-    display: block;
-}
-
-
 
 
 
@@ -442,15 +365,22 @@ input:focus {
     }
 }
 
-/* reducing the font-size of the h1 of the modal */
+/* reducing the font-size of the main heading of the app */
 @media all and (max-width: 330px) {
-    .modal h1 {
+    .heading {
         font-size: 28px;
     }
 }
 
+/* reducing the font-size of the h1 of the modal */
+@media all and (max-width: 330px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
 /* reducing the font-size of the input text and placeholder text*/
-@media all and (max-width: 320px) {
+@media all and (max-width: 390px) {
     .input-item {
         font-size: 14px;
     }
