@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Welcome to my pokedex</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon_pokedex-32x32.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- my CSS stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="dist/styles.min.css">
 </head>
 
 <body>
@@ -73,10 +74,10 @@
 
     <!-- Link to polyfill for promises -->
     <!-- This script musst be loaded bevor scripts.js to use the functionality for executing the promises in the scripts.js file. new Promise(...) will now work with older browsers as well -->
-    <script src="js/promise-polyfill.js"></script>
+    <script src="src/js/promise-polyfill.js"></script>
 
     <!-- Link to polyfill for fetch() -->
-    <script src="js/fetch.umd.js"></script>
+    <script src="src/js/fetch.umd.js"></script>
 
 
 
@@ -96,7 +97,7 @@
 
 
     <!-- Link to the JS file -->
-    <script src="js/scripts.js"></script>
+    <script src="dist/scripts.min.js"></script>
 
 
 
